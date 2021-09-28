@@ -25,3 +25,27 @@ Print a message:
 The list of numbers should be print out one per line in lexicographic order with no duplicates.
 """
 
+# Filter TeleNumbers
+incoming_numbers = set([i[0] for i in calls
+                        if i[0][0] == '1' and len(i[0]) == 10])
+
+answering_numbers = [i[1] for i in calls if i[1][0] == '1' and len(i[1]) == 10]
+
+anwsering_msg_numbers = [i[1] for i in texts
+                         if i[1][0] == '1' and len(i[1]) == 10]
+
+incoming_msg_numbers = [i[0] for i in texts
+                        if i[0][0] == '1' and len(i[0]) == 10]
+
+# The numbers who  have sent/recieved messages and \
+# recieved call were not telecallers
+invalid_set = set(answering_numbers + incoming_msg_numbers
+                  + anwsering_msg_numbers)
+
+valid_telenumber = sorted([i for i in incoming_numbers
+                           if i not in invalid_set])
+
+print("These numbers could be telemarketers: ")
+
+for i in valid_telenumber:
+    print(i)
