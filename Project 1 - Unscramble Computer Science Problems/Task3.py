@@ -48,28 +48,40 @@ The percentage should have 2 decimal digits
 
 def print_message_a():
     """
-		Prints List all area code who got call from bangalore
+        Prints List all area code who got call from bangalore
     """
-    prefixs = set([get_the_prefix_code(i[1]) for i in filter_callers_with_area_code()])
-    
+    prefixs = set([get_the_prefix_code(i[1])
+                   for i in filter_calls_with_area_code()])
+
     print("The numbers called by people in Bangalore have codes:")
-    
+
     for i in sorted(prefixs):
         print(i)
 
 
 def print_message_b():
     """
-		Prints the percentage of fixed line calls made from
-		Bangalore to fixed lines in Bangalore.
-	"""
-    return None
+        Prints the percentage of fixed line calls made from
+        Bangalore to fixed lines in Bangalore(080).
+    """
+    calls_made_from_bangalore = filter_calls_with_area_code('080')
+    calls_made_to_bangalore = [i for i in calls_made_from_bangalore
+                               if get_the_prefix_code(i[1]) == "080"]
+
+    # Calculate Percentage
+    percentage_calls = (len(calls_made_to_bangalore)/len(calls_made_from_bangalore))*100
+
+    message = "{:.2f} percent of calls from fixed lines \
+        in Bangalore are calls to other fixed lines in Bangalore."
+    message = message.format(percentage_calls)
+
+    print(message)
 
 
 def get_the_prefix_code(number):
     """
-		Returns the area code / Mobile Prefix 
-  		of given phone number(if valid).
+        Returns the area code / Mobile Prefix
+          of given phone number(if valid).
     """
     if number[0] == "(" and ")" in number and number[1] == '0':
         return number[1:number.index(')')]
@@ -81,19 +93,19 @@ def get_the_prefix_code(number):
         return -1
 
 
-def filter_callers_with_area_code(area_code='080'):
+def filter_calls_with_area_code(area_code='080'):
     """
-		Return's all records, In which the call initiated
-		with given area_code
+        Return's all records, In which the call initiated
+        with given area_code
     """
     filtered_data = []
-    
+
     for record in calls:
         if area_code == get_the_prefix_code(record[0]):
             filtered_data.append(record)
-            
+
     return filtered_data[:]
 
 
-
 print_message_a()
+print_message_b()
