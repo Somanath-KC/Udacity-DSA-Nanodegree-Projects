@@ -1,0 +1,5 @@
+Task0.py - O(1)
+Task1.py - O(n)
+Task2.py - O(n)
+Task3.py - O(n log n)
+Task4.py - O(n log n)
