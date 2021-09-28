@@ -72,7 +72,7 @@ def print_message_b():
     percentage_calls = (len(calls_made_to_bangalore)/len(calls_made_from_bangalore))*100
 
     message = "{:.2f} percent of calls from fixed lines \
-        in Bangalore are calls to other fixed lines in Bangalore."
+in Bangalore are calls to other fixed lines in Bangalore."
     message = message.format(percentage_calls)
 
     print(message)
