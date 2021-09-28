@@ -44,3 +44,56 @@ Print the answer as a part of a message::
 to other fixed lines in Bangalore."
 The percentage should have 2 decimal digits
 """
+
+
+def print_message_a():
+    """
+		Prints List all area code who got call from bangalore
+    """
+    prefixs = set([get_the_prefix_code(i[1]) for i in filter_callers_with_area_code()])
+    
+    print("The numbers called by people in Bangalore have codes:")
+    
+    for i in sorted(prefixs):
+        print(i)
+
+
+def print_message_b():
+    """
+		Prints the percentage of fixed line calls made from
+		Bangalore to fixed lines in Bangalore.
+	"""
+    return None
+
+
+def get_the_prefix_code(number):
+    """
+		Returns the area code / Mobile Prefix 
+  		of given phone number(if valid).
+    """
+    if number[0] == "(" and ")" in number and number[1] == '0':
+        return number[1:number.index(')')]
+    elif number[0] in ['7', '8', '9']:
+        return number[:4]
+    elif number[0] == '1' and len(number) == 10:
+        return number[:3]
+    else:
+        return -1
+
+
+def filter_callers_with_area_code(area_code='080'):
+    """
+		Return's all records, In which the call initiated
+		with given area_code
+    """
+    filtered_data = []
+    
+    for record in calls:
+        if area_code == get_the_prefix_code(record[0]):
+            filtered_data.append(record)
+            
+    return filtered_data[:]
+
+
+
+print_message_a()
