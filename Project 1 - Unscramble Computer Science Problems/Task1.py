@@ -41,7 +41,7 @@ def get_all_telephone_numbers():
     # ['incoming_number', 'answering_number', 'Date Time', 'Duration'] -> Format
     call_telephone_numbers = []
 
-    for record in texts:
+    for record in calls:
         call_telephone_numbers.append(record[0])
         call_telephone_numbers.append(record[1])
 
