@@ -1,5 +1,86 @@
-Task0.py - O(1)
-Task1.py - O(n)
-Task2.py - O(n)
-Task3.py - O(n log n)
+Task0.py
+    - Worst-Case time complexity is O(1)
+    The time complexity for this program is O(1) because
+    we are directly accessing the calls & texts list using
+    index.
+
+
+Task1.py
+    - Worst-Case time complexity is O(n)
+    This program has three function which run sequncitally.
+        func -> get_all_telephone_numbers()
+        - Big-O notation for this function is O(n)
+          This function has 2 loops & 2 instructions with
+          in them which runs 4n number of instructions & 
+          5 instructions irrespective of inputs. 
+          Therefore the mathematical representation would 
+          be - 2n + 2n + 5 --> 4n + 5. Since we ignore lower
+          order terms and co-efficients, 4n + 5 becomes n, i.e O(n)
+        func -> get_unique_telephone_numbers()
+        - Big-O notation for this function is O(n)
+          This function eliminates duplicates by using built-in
+          set() method, whose worst case time complexity is O(n).
+          Same for list() built-in method which is used in return
+          statement. Therefore the mathematical
+          representation would be - n + n + 1 --> 2n + 1.
+          Since we ignore lower order terms and co-efficients,
+          2n + 1 becomes n, i.e O(n)
+          ref: https://www.geeksforgeeks.org/internal-working-of-set-in-python/
+        func -> get_unique_telephone_numbers()
+        - Big-O notation for this function is O(1)
+          The time complexity for this program is O(1) because
+          we are use print statement and 2 variable assingments.
+          Therefore the mathematical
+          representation would be - 1 + 2 --> 3.
+          Since we ignore lower order terms and co-efficients,
+          3 becomes O(1). The worst-case time complexity for len() is 1.
+          ref: https://wiki.python.org/moin/TimeComplexity
+    Since the program is executing sequncitally, We can add the individual function's
+    worst-case time complexities O(n) + O(n) + O(1) --> O(n)
+
+
+Task2.py
+    - Worst-Case time complexity is O(n)
+    func -> filter_calls()
+        - Big-O notation for this function is O(n)
+        The worst-case complexity for this function is O(n), because
+        we every record irrespective of the input.
+
+    func -> get_telephone_numbers_duration()
+        - Big-O notation for this function is O(n)
+        Because, this function ittrates through all lines, irrespective
+        of input.
+
+    func -> get_telephone_numbers_max_duration()
+        - Big-O notation for this function is O(1)
+        The reason behind this is, dictinories use hashmap. To find
+        the maximum duration therefore the worst case time complexity is O(1).
+
+    func -> print_message()
+        - Big-O notation for this function is O(1)
+        Because, this constant number of times, since they are only
+        having print statements and variable assingments.
+    Since the program is executing sequncitally, We can add the individual function's
+    worst-case time complexities O(n) + O(n) + O(1) + O(1) --> O(n)
+
+
+Task3.py
+    - Worst-Case time complexity is O(n log n)
+    The Big-O notation for this program is O(n log n) because,
+    in worst case senario for sorted() builtin method is n log n,
+    which is used to print in lexicographical order.
+    Since print_message() functions directly print's the
+    message the time complexity for those functions constant,
+    therefore ignored.  
+
+
 Task4.py - O(n log n)
+    - Worst-Case time complexity is O(n log n)
+    Because in this program we are printing lexographically sorted
+    codes, for which we are using inbuilt sorted() method whose worst
+    case time complexity is O(n log n). All the remaining statements
+    run constant number of times and loops with order O(n), Therefore
+    after eleminating the lower order terms the worst-case time 
+    complexity for this program is O(n log n)
+
+
