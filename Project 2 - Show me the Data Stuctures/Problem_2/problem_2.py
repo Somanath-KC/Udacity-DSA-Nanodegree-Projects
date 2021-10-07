@@ -18,16 +18,20 @@ def find_files(suffix, path):
        a list of paths
     """
 
-    c_files = list()
+    matched_files = list()
 
-    for i in os.listdir(path):
-        if os.path.isdir(os.path.join(path, i)):
-            c_files += find_files(suffix, os.path.join(path, i))
+    # Checks if given path is file & checks if it matches suffix
+    if os.path.isfile(path) and path[-len(suffix):].lower() == suffix.lower():
+        return [path]
+
+    for item in os.listdir(path):
+        if os.path.isdir(os.path.join(path, item)):
+            matched_files += find_files(suffix, os.path.join(path, item))
         else:
-            if i[-2:] == suffix:
-                c_files.append(os.path.join(path, i))
+            if item[-len(suffix):].lower() == suffix.lower():
+                matched_files.append(os.path.join(path, item))
 
-    return c_files
+    return matched_files
 
 
 print(find_files(".c", "testdir"))
