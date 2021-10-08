@@ -109,7 +109,7 @@ class LRU_Cache(DoublyLinkedList):
             if not self.size() < self.max_size:
                 storage_key = self.get_head().key
                 del self.storage[storage_key]
-                self.remove_head_element()
+                self.remove_head_node()
             self.storage[key] = self.append(value)
             self.storage[key].key = key
 
@@ -137,7 +137,7 @@ class LRU_Cache(DoublyLinkedList):
             self.length -= 1
             self.append(value)
 
-    def remove_head_element(self):
+    def remove_head_node(self):
         """
             Removes the head node i.e least recently used item.
         """
