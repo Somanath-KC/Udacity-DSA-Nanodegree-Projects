@@ -95,7 +95,7 @@ class LRU_Cache(DoublyLinkedList):
         node = self.storage.get(key, -1)
 
         if node != -1:
-            self.move_node_to_tail(node)
+            self.__move_node_to_tail(node)
             self.storage[key] = self.get_tail()
             self.storage[key].key = key
             return self.storage[key].value
@@ -109,11 +109,11 @@ class LRU_Cache(DoublyLinkedList):
             if not self.size() < self.max_size:
                 storage_key = self.get_head().key
                 del self.storage[storage_key]
-                self.remove_head_node()
+                self.__remove_head_node()
             self.storage[key] = self.append(value)
             self.storage[key].key = key
 
-    def move_node_to_tail(self, node):
+    def __move_node_to_tail(self, node):
         """
             Move the given node to end of linked list(tail).
         """
@@ -137,7 +137,7 @@ class LRU_Cache(DoublyLinkedList):
             self.length -= 1
             self.append(value)
 
-    def remove_head_node(self):
+    def __remove_head_node(self):
         """
             Removes the head node i.e least recently used item.
         """
@@ -154,11 +154,11 @@ our_cache.set(3, 3)
 our_cache.set(4, 4)
 
 
-our_cache.get(1)       # returns 1
-our_cache.get(2)       # returns 2
-our_cache.get(9)      # returns -1 because 9 is not present in the cache
+print(our_cache.get(1))       # returns 1
+print(our_cache.get(2))       # returns 2
+print(our_cache.get(9))      # returns -1 because 9 is not present in the cache
 
 our_cache.set(5, 5)
 our_cache.set(6, 6)
 
-our_cache.get(3)      # returns -1 because the cache reached it's capacity and 3 was the least recently used entry
+print(our_cache.get(3))      # returns -1 because the cache reached it's capacity and 3 was the least recently used entry
