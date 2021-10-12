@@ -10,10 +10,13 @@ The file explorer is accessible using the button in left corner of the navigatio
 
 All your files and folders are presented as a tree in the file explorer. You can switch from one to another by clicking a file in the tree.
 
+### Time Complexity
 There are two types of synchronization and they can complement each other:
 
 - The workspace synchronization will sync all your files, folders and settings automatically. This will allow you to fetch your workspace on any other device.
 	> To start syncing your workspace, just sign in with Google in the menu.
+	
+### Space Complexity
 
 - The file synchronization will keep one file of the workspace synced with one or multiple files in **Google Drive**, **Dropbox** or **GitHub**.
 	> Before starting to sync files, you must link an account in the **Synchronize** sub-menu.
