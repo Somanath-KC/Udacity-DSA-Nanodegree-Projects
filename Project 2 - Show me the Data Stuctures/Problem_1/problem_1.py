@@ -165,6 +165,6 @@ our_cache.set(6, 6)
 
 print(our_cache.get(3))      # returns -1 because the cache reached it's capacity and 3 was the least recently used entry
 
-our_cache=LRU_Cache(0)
-our_cache.set(1,1)
-print(our_cache.get(1)) # Returns -1 since storage size is zero, therefore no data is stored
+our_cache = LRU_Cache(0)
+our_cache.set(1, 1)
+print(our_cache.get(1))  # Returns -1 since storage size is zero, therefore no data is stored
