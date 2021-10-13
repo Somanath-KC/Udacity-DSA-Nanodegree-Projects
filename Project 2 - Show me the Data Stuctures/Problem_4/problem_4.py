@@ -18,7 +18,7 @@ class Group(object):
 
     def get_name(self):
         return self.name
-    
+
 
 def is_user_in_group(user, group):
     """
@@ -28,7 +28,16 @@ def is_user_in_group(user, group):
       user(str): user name/id
       group(class:Group): group to check user membership against
     """
-    return None
+
+    if user == group.get_name():
+        return True
+    elif user in group.get_users():
+        return True
+    else:
+        for group in group.get_groups():
+            return is_user_in_group(user, group)
+
+    return False
 
 
 parent = Group("parent")
