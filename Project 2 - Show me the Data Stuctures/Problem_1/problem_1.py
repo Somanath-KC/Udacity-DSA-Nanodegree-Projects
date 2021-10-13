@@ -84,7 +84,7 @@ class DoublyLinkedList:
 
 class LRU_Cache(DoublyLinkedList):
 
-    def __init__(self, capacity):
+    def __init__(self, capacity=0):
         # Initialize class variables
         super().__init__()
         self.max_size = capacity
@@ -105,8 +105,8 @@ class LRU_Cache(DoublyLinkedList):
     def set(self, key, value):
         # Set the value if the key is not present in the cache.
         # If the cache is at capacity remove the oldest item.
-        if key not in self.storage:
-            if not self.size() < self.max_size:
+        if key not in self.storage and self.max_size > 0:
+            if not self.size() < self.max_size and self.size() > 0:
                 storage_key = self.get_head().key
                 del self.storage[storage_key]
                 self.__remove_head_node()
@@ -146,6 +146,8 @@ class LRU_Cache(DoublyLinkedList):
         self.length -= 1
 
 
+# Testing
+
 our_cache = LRU_Cache(5)
 
 our_cache.set(1, 1)
@@ -162,3 +164,7 @@ our_cache.set(5, 5)
 our_cache.set(6, 6)
 
 print(our_cache.get(3))      # returns -1 because the cache reached it's capacity and 3 was the least recently used entry
+
+our_cache=LRU_Cache(0)
+our_cache.set(1,1)
+print(our_cache.get(1)) # Returns -1 since storage size is zero, therefore no data is stored
