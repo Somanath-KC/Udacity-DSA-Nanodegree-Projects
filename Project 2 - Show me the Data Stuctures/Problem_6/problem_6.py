@@ -17,7 +17,7 @@ class LinkedList:
         while cur_head:
             out_string += str(cur_head.value) + " -> "
             cur_head = cur_head.next
-        return out_string
+        return out_string[:-4]
 
 
     def append(self, value):
@@ -40,14 +40,47 @@ class LinkedList:
             node = node.next
 
         return size
+    
+    def to_set(self):
+        output_set = set()
+        
+        if self.size() == 0:
+            return output_set
+        
+        node = self.head
+        while node:
+            output_set.add(node.value)
+            node = node.next
+            
+        return output_set
+
 
 def union(llist_1, llist_2):
     # Your Solution Here
-    pass
+    set_1 = llist_1.to_set()
+    set_2 = llist_2.to_set()
+    
+    union_set = set_1.union(set_2)
+    union_list = LinkedList()
+    
+    for i in union_set:
+        union_list.append(i)
+        
+    return union_list
+
 
 def intersection(llist_1, llist_2):
     # Your Solution Here
-    pass
+    set_1 = llist_1.to_set()
+    set_2 = llist_2.to_set()
+    
+    intersec_set = set_1.intersection(set_2)
+    intersec_list = LinkedList()
+    
+    for i in intersec_set:
+        intersec_list.append(i)
+        
+    return intersec_list
 
 
 # Test case 1
