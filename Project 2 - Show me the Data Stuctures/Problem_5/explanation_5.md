@@ -1,23 +1,26 @@
-# Problem - 1
+# Problem - 5
 
-Hi! I'm your first Markdown file in **StackEdit**. If you want to learn about StackEdit, you can read me. If you want to play with Markdown, you can edit me. Once you have finished with me, you can create new files by opening the **file explorer** on the left corner of the navigation bar.
+A Blockchain is a sequential chain of records, similar to a linked list. Each block contains some information and how it is connected related to the other blocks in the chain. Each block contains a cryptographic hash of the previous block, a timestamp, and transaction data. For our blockchain we will be using a SHA-256 hash, the Greenwich Mean Time when the block was created, and text strings as the data.
+
+Finally you need to link all of this together in a block chain, which you will be doing by implementing it in a linked list. All of this will help you build up to a simple but full blockchain implementation!
 
 ## Design Choices
 
-The file explorer is accessible using the button in left corner of the navigation bar. You can create a new file by clicking the **New file** button in the file explorer. You can also create folders by clicking the **New folder** button.
+As Block chain is made up of links connecting individual blocks, Linked List would be the great fit to implement block chain. With this we will 
+store the hash digest of the previous block in the current block to maintain data integrity of the block. 
+
+Since we keep track of head and tail of linked list, it would avoid traversing through entire linked list when adding new block of data.
+
 
 ## Efficiency
 
-All your files and folders are presented as a tree in the file explorer. You can switch from one to another by clicking a file in the tree.
+The overall time complexity for this problem is O(1) and space complexity is O(n).
+
 
 ### Time Complexity
-There are two types of synchronization and they can complement each other:
 
-- The workspace synchronization will sync all your files, folders and settings automatically. This will allow you to fetch your workspace on any other device.
-	> To start syncing your workspace, just sign in with Google in the menu.
-	
+* BlockChain.append() method will take O(1) time to insert new record to block chain. Because we are keeping track of linked list's tail which will be used to insert new record in constant time.
+
 ### Space Complexity
 
-- The file synchronization will keep one file of the workspace synced with one or multiple files in **Google Drive**, **Dropbox** or **GitHub**.
-	> Before starting to sync files, you must link an account in the **Synchronize** sub-menu.
-
+* The Space complexity of this problem is O(n*(m+34)+2) -> O(n). The space depends on number of inputs, Because each block is added for new record i.e n input blockchain contains n blocks.
