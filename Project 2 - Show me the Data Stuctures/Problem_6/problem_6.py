@@ -19,7 +19,6 @@ class LinkedList:
             cur_head = cur_head.next
         return out_string[:-4]
 
-
     def append(self, value):
 
         if self.head is None:
@@ -40,18 +39,18 @@ class LinkedList:
             node = node.next
 
         return size
-    
+
     def to_set(self):
         output_set = set()
-        
+
         if self.size() == 0:
             return output_set
-        
+
         node = self.head
         while node:
             output_set.add(node.value)
             node = node.next
-            
+
         return output_set
 
 
@@ -59,13 +58,13 @@ def union(llist_1, llist_2):
     # Your Solution Here
     set_1 = llist_1.to_set()
     set_2 = llist_2.to_set()
-    
+
     union_set = set_1.union(set_2)
     union_list = LinkedList()
-    
+
     for i in union_set:
         union_list.append(i)
-        
+
     return union_list
 
 
@@ -73,13 +72,13 @@ def intersection(llist_1, llist_2):
     # Your Solution Here
     set_1 = llist_1.to_set()
     set_2 = llist_2.to_set()
-    
+
     intersec_set = set_1.intersection(set_2)
     intersec_list = LinkedList()
-    
+
     for i in intersec_set:
         intersec_list.append(i)
-        
+
     return intersec_list
 
 
@@ -88,8 +87,8 @@ def intersection(llist_1, llist_2):
 linked_list_1 = LinkedList()
 linked_list_2 = LinkedList()
 
-element_1 = [3,2,4,35,6,65,6,4,3,21]
-element_2 = [6,32,4,9,6,1,11,21,1]
+element_1 = [3, 2, 4, 35, 6, 65, 6, 4, 3, 21]
+element_2 = [6, 32, 4, 9, 6, 1, 11, 21, 1]
 
 for i in element_1:
     linked_list_1.append(i)
@@ -97,16 +96,16 @@ for i in element_1:
 for i in element_2:
     linked_list_2.append(i)
 
-print (union(linked_list_1,linked_list_2))
-print (intersection(linked_list_1,linked_list_2))
+print(union(linked_list_1, linked_list_2))
+print(intersection(linked_list_1, linked_list_2))
 
 # Test case 2
 
 linked_list_3 = LinkedList()
 linked_list_4 = LinkedList()
 
-element_1 = [3,2,4,35,6,65,6,4,3,23]
-element_2 = [1,7,8,9,11,21,1]
+element_1 = [3, 2, 4, 35, 6, 65, 6, 4, 3, 3]
+element_2 = [1, 7, 8, 9, 11, 21, 1]
 
 for i in element_1:
     linked_list_3.append(i)
@@ -114,5 +113,5 @@ for i in element_1:
 for i in element_2:
     linked_list_4.append(i)
 
-print (union(linked_list_3,linked_list_4))
-print (intersection(linked_list_3,linked_list_4))
+print(union(linked_list_3, linked_list_4))
+print(intersection(linked_list_3, linked_list_4))
