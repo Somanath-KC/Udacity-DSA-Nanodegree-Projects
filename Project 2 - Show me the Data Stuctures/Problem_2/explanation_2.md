@@ -4,7 +4,7 @@ For this problem, the goal is to write code for finding all files under a direct
 
 ## Design Choices
 
-For this problem I've choosed recursive approach to accomplish the task.
+For this problem I've choosed recursive approach to accomplish the task. The function will be called unitil every sub directory is traversed.
 
 ## Efficiency
 
