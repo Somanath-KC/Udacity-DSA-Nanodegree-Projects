@@ -1,7 +1,7 @@
 import os
 
 
-def find_files(suffix, path):
+def find_files(suffix=".c", path="."):
     """
     Find all files beneath path with file name suffix.
 
@@ -20,6 +20,10 @@ def find_files(suffix, path):
 
     matched_files = list()
 
+    if (not os.path.isdir(path) and
+            not os.path.isfile(path)) or suffix != ".c":
+        return matched_files
+
     # Checks if given path is file & checks if it matches suffix
     if os.path.isfile(path) and path[-len(suffix):].lower() == suffix.lower():
         return [path]
@@ -34,4 +38,22 @@ def find_files(suffix, path):
     return matched_files
 
 
-print(find_files(".c", "testdir"))
+#####     #####
+#   Testing   #
+#####     #####
+
+# Test case 1 / General Working
+print("\n",  "#"*10, " - Test Case 1 - ", "#"*10, "\n")
+print(find_files(".c", "testdir"))  # Given Sample Directory
+
+# Test case 2 / Invalid Directory Path
+print("\n",  "#"*10, " - Test Case 2 - ", "#"*10, "\n")
+print(find_files(".c", "testdirs_"))  # Invalid Directory returns []
+
+# Test case 3 / Providing null directory path
+print("\n",  "#"*10, " - Test Case 3 - ", "#"*10, "\n")
+print(find_files(".c"))  # Current directory will considered by default
+
+# Test case 4 / Trying with other files extensions
+print("\n",  "#"*10, " - Test Case 4 - ", "#"*10, "\n")
+print(find_files(".py"))  # Other extensions returns []
