@@ -82,7 +82,12 @@ def intersection(llist_1, llist_2):
     return intersec_list
 
 
+#####     #####
+#   Testing   #
+#####     #####
+
 # Test case 1
+print("\n",  "#"*10, " - Test Case 1 - ", "#"*10, "\n")
 
 linked_list_1 = LinkedList()
 linked_list_2 = LinkedList()
@@ -100,6 +105,7 @@ print(union(linked_list_1, linked_list_2))
 print(intersection(linked_list_1, linked_list_2))
 
 # Test case 2
+print("\n",  "#"*10, " - Test Case 2 - ", "#"*10, "\n")
 
 linked_list_3 = LinkedList()
 linked_list_4 = LinkedList()
@@ -115,3 +121,26 @@ for i in element_2:
 
 print(union(linked_list_3, linked_list_4))
 print(intersection(linked_list_3, linked_list_4))
+
+
+# Test case 3 / One Empty List
+print("\n",  "#"*10, " - Test Case 3 - ", "#"*10, "\n")
+
+linked_list_5 = LinkedList()
+linked_list_6 = LinkedList()
+
+element_5 = []
+element_6 = [1, 7, 8, 9, 11, 21, 1]
+
+for i in element_5:
+    linked_list_5.append(i)
+
+for i in element_6:
+    linked_list_6.append(i)
+
+print(union(linked_list_5, linked_list_6))
+print(intersection(linked_list_5, linked_list_6))  # Return's None
+
+# Passing two empty lists / Returns None for both
+print(union(linked_list_5, linked_list_5))
+print(intersection(linked_list_5, linked_list_5))
