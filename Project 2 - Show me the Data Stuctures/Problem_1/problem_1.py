@@ -87,6 +87,8 @@ class LRU_Cache(DoublyLinkedList):
     def __init__(self, capacity=0):
         # Initialize class variables
         super().__init__()
+        if capacity < 0:
+            capacity = 5
         self.max_size = capacity
         self.storage = dict()
 
@@ -146,7 +148,12 @@ class LRU_Cache(DoublyLinkedList):
         self.length -= 1
 
 
-# Testing
+#####     #####
+#   Testing   #
+#####     #####
+
+# Test case 1 / General Working
+print("\n",  "#"*10, " - Test Case 1 - ", "#"*10, "\n")
 
 our_cache = LRU_Cache(5)
 
@@ -154,7 +161,6 @@ our_cache.set(1, 1)
 our_cache.set(2, 2)
 our_cache.set(3, 3)
 our_cache.set(4, 4)
-
 
 print(our_cache.get(1))       # returns 1
 print(our_cache.get(2))       # returns 2
@@ -165,6 +171,28 @@ our_cache.set(6, 6)
 
 print(our_cache.get(3))      # returns -1 because the cache reached it's capacity and 3 was the least recently used entry
 
-our_cache = LRU_Cache(0)
-our_cache.set(1, 1)
-print(our_cache.get(1))  # Returns -1 since storage size is zero, therefore no data is stored
+# Test case 2 / Zero Size Cache
+print("\n",  "#"*10, " - Test Case 2 - ", "#"*10, "\n")
+
+our_cache_2 = LRU_Cache(0)
+our_cache_2.set(1, 1)
+print(our_cache_2.get(1))  # Returns -1 since storage size is zero, therefore no data is stored
+assert(our_cache_2.size() == 0)
+
+# Test case 3 / Negative Size Cache
+print("\n",  "#"*10, " - Test Case 3 - ", "#"*10, "\n")
+
+our_cache_3 = LRU_Cache(-2)
+our_cache_3.set(1, 1)
+print(our_cache_3.get(1))  # Returns 1
+assert(our_cache_3.size() == 1)
+assert(our_cache_3.max_size == 5)  # If negative capacity size if provided, capcity will set to 5
+
+# Test case 4 / Null Size Cache
+print("\n",  "#"*10, " - Test Case 4 - ", "#"*10, "\n")
+
+our_cache_3 = LRU_Cache()
+our_cache_3.set(1, 1)
+print(our_cache_3.get(1))  # Returns -1
+assert(our_cache_3.size() == 0)
+assert(our_cache_3.max_size == 0)  # If no capacity size if provided, capcity will set to 0
