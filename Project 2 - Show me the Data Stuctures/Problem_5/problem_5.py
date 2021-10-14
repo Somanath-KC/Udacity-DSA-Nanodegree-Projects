@@ -109,10 +109,13 @@ class BlockChain(DoublyLinkedList):
     def __init__(self):
         super().__init__()
 
-    def append(self, data):
+    def append(self, data=None):
         """
             Append's new block to chain.
         """
+        # Check If Data is not empty
+        if not data:
+            return
         # Calc Prev Hash
         if not self.head:
             prev_hash = 0
@@ -133,6 +136,13 @@ class BlockChain(DoublyLinkedList):
         self.length += 1
 
 
+#####     #####
+#   Testing   #
+#####     #####
+
+
+# Test case 1 / Add Diffrent Data Blocks
+print("\n",  "#"*10, " - Test Case 1 - ", "#"*10, "\n")
 block_chain = BlockChain()
 
 print(block_chain.size())  # Prints 0
@@ -156,3 +166,22 @@ block_chain.append("Record 3")
 print(block_chain.size())  # Prints 3
 print(block_chain.head)  # Prints Record 1 Block data
 print(block_chain.tail)  # Prints Record 3 Block data
+
+
+# Test case 2 / Blocks with same data but diffrent hash digest
+print("\n",  "#"*10, " - Test Case 2 - ", "#"*10, "\n")
+block_chain_2 = BlockChain()
+block_chain_2.append("Same Record")
+block_chain_2.append("Same Record")
+print(block_chain_2.head.value)
+print(block_chain_2.tail.value)
+assert(block_chain_2.head.get_hash() != block_chain_2.tail.get_hash())
+
+
+# Test case 3 / Inserting Empty Data
+print("\n",  "#"*10, " - Test Case 3 - ", "#"*10, "\n")
+block_chain_2 = BlockChain()
+block_chain_2.append()
+block_chain_2.append()
+print(block_chain_2.tail)  # Prints None sine empty data not accepted!
+assert(block_chain_2.size() == 0)
