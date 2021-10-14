@@ -73,5 +73,5 @@ print(is_user_in_group('pradeep', child))  # False Because pradeep exists in par
 
 
 # Test case 3 / Searching a user in empty group
-print("\n",  "#"*10, " - Test Case 2 - ", "#"*10, "\n")
+print("\n",  "#"*10, " - Test Case 3 - ", "#"*10, "\n")
 print(is_user_in_group('pradeep', Group("parent")))  # False Because parent group is empty
