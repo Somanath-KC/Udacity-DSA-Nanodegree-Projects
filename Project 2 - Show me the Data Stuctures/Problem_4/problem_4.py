@@ -40,6 +40,15 @@ def is_user_in_group(user, group):
     return False
 
 
+#####     #####
+#   Testing   #
+#####     #####
+
+
+# Test case 1 / General Working I/O
+print("\n",  "#"*10, " - Test Case 1 - ", "#"*10, "\n")
+
+
 parent = Group("parent")
 child = Group("child")
 sub_child = Group("subchild")
@@ -49,3 +58,20 @@ sub_child.add_user(sub_child_user)
 
 child.add_group(sub_child)
 parent.add_group(child)
+
+child.add_user('vamsi')
+parent.add_user('pradeep')
+
+print(is_user_in_group('vamsi', parent))  # True
+print(is_user_in_group('pradeep', parent))  # True
+print(is_user_in_group('sandy', parent))  # False
+
+
+# Test case 2 / Searching a user in child group
+print("\n",  "#"*10, " - Test Case 2 - ", "#"*10, "\n")
+print(is_user_in_group('pradeep', child))  # False Because pradeep exists in parent group
+
+
+# Test case 3 / Searching a user in empty group
+print("\n",  "#"*10, " - Test Case 2 - ", "#"*10, "\n")
+print(is_user_in_group('pradeep', Group("parent")))  # False Because parent group is empty
