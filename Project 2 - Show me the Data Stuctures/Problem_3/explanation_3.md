@@ -1,10 +1,18 @@
 # Problem - 3
 
-For this problem, the goal is to write code for finding all files under a directory (and all directories beneath it) that end with ".c"
+A. Huffman Encoding
+Assume that we have a string message comprising of characters to be encoded. The string message can be an unsorted one as well. We will have two phases in encoding - building the Huffman tree (a binary tree), and generating the encoded data.
+
+B. Huffman Decoding
+Once we have the encoded data, and the (pointer to the root of) Huffman tree, we can easily decode the encoded data 
 
 ## Design Choices
 
-For this problem I've choosed recursive approach to accomplish the task. The function will be called unitil every sub directory is traversed.
+* As suggested in the problem page, I've used binary tree to construct Huffman tree. 
+* For calculating the frequency of each character I've used dictionaries with character and frequencry as key value pairs.
+* To get the characters with minimum frequency I've used min heap.
+* For Generating the Huffman code I've used recursive approach in which the base case will the leaf and huffman code is concatenated through out the traversal.
+
 
 ## Efficiency
 
@@ -12,8 +20,15 @@ The overall time complexity for this problem is O(n) and space complexity is O(n
 
 ### Time Complexity
 
-* The Find_files() function will be called recursively until traversing through every folder. Therefore the time complexity is O(n).
+> Encoding
+While Encoding, we'll have to visit every character in the input string for calculation of frequency for which it will take linear time time complete. Therefore by ignoring the lower order runtimes for creation of binary tree, insertion of min heap we'll get worst case time complexity O(n)
+
+> Decoding
+While Decoding, We'll have to traverse through every node of the tree when there all unique characters in the input string which tends to take linear time.
+Therefore the worst case time complexity for decoding is O(n)
 	
 ### Space Complexity
 
-* Since the function is called for every directory, considering input path with n directories the space complexity will be O(5n) -> O(n).
+* The Average Space complexity is the number of unique characters in the input string i.e k -> O(k).
+* In the worst case the the size of dictionary will the length of input stirng if all of the were unique characters, 
+Hence the worst case space complexity is O(n).
