@@ -16,12 +16,13 @@ Once we have the encoded data, and the (pointer to the root of) Huffman tree, we
 
 ## Efficiency
 
-The overall time complexity for this problem is O(n) and space complexity is O(n).
+The overall time complexity for this problem is O(n log n) and space complexity is O(n).
 
 ### Time Complexity
 
 > Encoding
-While Encoding, we'll have to visit every character in the input string for calculation of frequency for which it will take linear time time complete. Therefore by ignoring the lower order runtimes for creation of binary tree, insertion of min heap we'll get worst case time complexity O(n)
+While Encoding, . Runtimes for creation of generating binary tree with worst case time complexity of  O(n), Where as Min Heap will take constant time for pushing & popping of nodes i.e O(1), But for heapifing the list the algorithm suggessts worst case time complexity of O(n log n). 
+Therefore, O(n) + O(n log n) -> O(n log n)
 
 > Decoding
 While Decoding, We'll have to traverse through every node of the tree when there all unique characters in the input string which tends to take linear time.
