@@ -201,6 +201,11 @@ def huffman_decoding(data, tree):
     return decoded_string
 
 
+#####     #####
+#   Testing   #
+#####     #####
+
+
 def test_case(num, text):
     """
         Used for Debugging
