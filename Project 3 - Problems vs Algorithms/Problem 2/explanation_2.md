@@ -1,4 +1,4 @@
-# Problem - 1
+# Problem - 2
 
 You are given a sorted array which is rotated at some random pivot point.
 
