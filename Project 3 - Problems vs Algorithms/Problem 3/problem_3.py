@@ -54,8 +54,8 @@ def merge(left, right):
             merged.append(right[right_index])
             right_index += 1
 
-    merged += left[left_index:]
     merged += right[right_index:]
+    merged += left[left_index:]
 
     return merged
 
