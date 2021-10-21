@@ -7,11 +7,11 @@ def sort_012(input_list=[]):
     """
     if input_list is None or len(input_list) == 0:
         return []
-    
+
     list0 = []
     list1 = []
     list2 = []
-    
+
     for i in input_list:
         if i == 0:
             list0.append(i)
@@ -21,7 +21,7 @@ def sort_012(input_list=[]):
             list2.append(i)
         else:
             return []
-            
+
     return list0 + list1 + list2
 
 
@@ -51,7 +51,6 @@ print("\n", "#"*8, " - Test Case 2 [Same Value] - ", "#"*8, "\n")
 test_function([2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2])
 
 
-
 # Test Case 3
 print("\n", "#"*8, " - Test Case 3 [Empty List/Null Value] - ", "#"*8, "\n")
 test_function([])
@@ -60,4 +59,4 @@ test_function()
 
 # Test Case 4
 print("\n", "#"*8, " - Test Case 4 [Other Than 0,1,2] - ", "#"*8, "\n")
-test_function([0,0,1,2,2,1,5])  # Returns Empty List becase 5 is not in range 0 to 2
+test_function([0, 0, 1, 2, 2, 1, 5])  # Returns Empty List becase 5 is not in range 0 to 2
