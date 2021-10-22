@@ -16,7 +16,11 @@ The overall time complexity for this problem is O(n) and space complexity is O(n
 
 
 ### Time Complexity
-* insert() method will travrse through every element in input word and inserts to trie node, which takes linear time complexity O(n).
+* TrieNode().insert() Traverses throught each char in the given word, which take linear order of time O(n).
+* TrieNode().suffixes() This medthod will visit all the child nodes. Such that branches of each node is N. We also need to visit the every child of node which is similar to length of each suffix of length L. Which takes O(m*n) order of time.
+* Trie().insert() The time-complexity for this method is O(n), Because it traverses through every word of input.
+* Trie().find() In worst case the this method will visit every node in the dictionary if it dose not exists, which makes the time complexity O(n)
+* By Ignoring the lower order terms and summing parts the overall time complexity is O(n).
 	
 ### Space Complexity
 

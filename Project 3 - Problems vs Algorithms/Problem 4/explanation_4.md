@@ -11,7 +11,7 @@ Used linear search approach to filter 0s, 1s, and 2s and stored in separate arry
 
 ## Efficiency
 
-The overall time complexity for this problem is O(n) and space complexity is O(1).
+The overall time complexity for this problem is O(n) and space complexity is O(n).
 
 
 ### Time Complexity
@@ -20,4 +20,4 @@ The overall time complexity for this problem is O(n) and space complexity is O(1
 	
 ### Space Complexity
 
-* The Spce complexity of this problem is O(1) The variable assignments is done only once through out the algorithm.
+* The Spce complexity of this problem is O(n) because the the elements were stored in list0, list1 and list2 were concatenated and then returned.

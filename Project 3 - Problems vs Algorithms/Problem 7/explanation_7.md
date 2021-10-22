@@ -15,11 +15,17 @@ The purpose of an HTTP Router is to take a URL path like "/", "/about", or "/blo
 
 ## Efficiency
 
-The overall time complexity for this problem is O(n) and space complexity is O(m * n).
+The overall time complexity for this problem is O(n) and space complexity is O(m * n). 
 
 ### Time Complexity
 
-add_handler() & lookup() need to traverse through every word of the path in worst-case, Therefore the worst-case time complexity is O(n)
+* RouterTrieNode().insert() Traverses throught each path in the given path_list, which take linear order of time O(n).
+* RouterTrie().suffixes() This medthod will visit all the child nodes. Such that branches of each node is N. We also need to visit the every child of node which is similar to length of each suffix of length L. Which takes O(m*n) order of time.
+* RouterTrie().insert() The time-complexity for this method is O(n), Because it traverses through every path word of input.
+* RouterTrie().find() In worst case the this method will visit every node in the dictionary if it dose not exists, which makes the time complexity O(n)
+* Router.lookup() in this method ignoring the self.routes.find() & self.split_path(), overall time compliexty of this method is O(n).
+* Router.split() traverses through every char of string, hence it takes O(n) order of time.
+* By Ignoring the lower order terms and summing parts the overall time complexity is O(n).
 	
 ### Space Complexity
 
